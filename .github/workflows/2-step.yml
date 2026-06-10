@@ -90,6 +90,7 @@ jobs:
         id: check-workflow-sources
         continue-on-error: true
         run: |
+          set -e
           grep -q 'notes/mona-notes.md' .github/workflows/update-github-info.md
           grep -q 'GitHub Blog' .github/workflows/update-github-info.md
           grep -q 'GitHub Changelog' .github/workflows/update-github-info.md
@@ -97,13 +98,13 @@ jobs:
       - name: Check workflow creates a pull request for Mona
         id: check-workflow-review
         continue-on-error: true
-        run: |
-          grep -Eiq 'pull request.*Mona|Mona.*pull request|review.*Mona' .github/workflows/update-github-info.md
+        run: grep -Eiq 'pull request.*Mona|Mona.*pull request|review.*Mona' .github/workflows/update-github-info.md
 
       - name: Check workflow uses pull request safe output
         id: check-workflow-safe-output
         continue-on-error: true
         run: |
+          set -e
           grep -q 'safe-outputs' .github/workflows/update-github-info.md
           grep -q 'create-pull-request' .github/workflows/update-github-info.md
 
@@ -111,6 +112,7 @@ jobs:
         id: check-workflow-network
         continue-on-error: true
         run: |
+          set -e
           grep -q 'network' .github/workflows/update-github-info.md
           grep -q 'github.blog' .github/workflows/update-github-info.md
           grep -q 'github.com' .github/workflows/update-github-info.md
