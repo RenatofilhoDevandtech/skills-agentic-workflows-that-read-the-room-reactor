@@ -1,6 +1,6 @@
 ---
 name: update-github-info
-description: Draft website updates for Mona's GitHub Info site from official GitHub sources. COPILOT_GITHUB_TOKEN
+description: Draft website updates for Mona's GitHub Info site from official GitHub sources using Gemini.
 engine: gemini
 on:
   workflow_dispatch:
@@ -24,6 +24,7 @@ network:
 # Update Mona's GitHub Info website
 
 Read `notes/mona-notes.md` before making changes.
+
 Web fetch https://awesome-copilot.github.com/workflows/
 
 Use these sources:
@@ -34,6 +35,6 @@ Use these sources:
 
 Update `site/content/github-info.md` with concise, practical updates for readers and include source context when content comes from the GitHub Blog or GitHub Changelog.
 
-Open a pull request for Mona to review. 
-Use a pull request title that mentions Mona or GitHub Info. 
+Open a pull request for Mona to review.
+Use a pull request title that mentions Mona or GitHub Info.
 Do not write directly to `main`; rely on `safe-outputs` with `create-pull-request`.
