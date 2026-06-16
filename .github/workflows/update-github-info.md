@@ -1,11 +1,13 @@
 ---
 name: update-github-info
-description: Draft website updates for Mona's GitHub Info site from official GitHub sources. GEMINI_API_KEY
+description: Draft website updates for Mona's GitHub Info site from official GitHub sources. Requires GEMINI_API_KEY.
 engine: gemini
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '17 9 * * *'
+  schedule: daily
+permissions:
+  contents: read
+  pull-requests: read
 safe-outputs:
   create-pull-request:
     title-prefix: "[mona] "
@@ -24,6 +26,7 @@ network:
 # Update Mona's GitHub Info website
 
 Read `notes/mona-notes.md` before making changes.
+
 Web fetch https://awesome-copilot.github.com/workflows/
 
 Use these sources:
@@ -34,6 +37,6 @@ Use these sources:
 
 Update `site/content/github-info.md` with concise, practical updates for readers and include source context when content comes from the GitHub Blog or GitHub Changelog.
 
-Open a pull request for Mona to review. 
-Use a pull request title that mentions Mona or GitHub Info. 
+Open a pull request for Mona to review.
+Use a pull request title that mentions Mona or GitHub Info.
 Do not write directly to `main`; rely on `safe-outputs` with `create-pull-request`.
