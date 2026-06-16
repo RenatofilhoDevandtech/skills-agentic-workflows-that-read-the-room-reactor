@@ -1,6 +1,7 @@
 ---
 name: update-github-info
-description: Draft website updates for Mona's GitHub Info site from official GitHub sources.
+description: Draft website updates for Mona's GitHub Info site from official GitHub sources. COPILOT_GITHUB_TOKEN
+engine: gemini
 on:
   workflow_dispatch:
   schedule:
