@@ -73,13 +73,13 @@ jobs:
         with:
           file: .github/workflows/update-github-info.lock.yml
 
-      - name: Check compiled workflow references Copilot secret
-        id: check-copilot-secret
+      - name: Check compiled workflow references Gemini secret
+        id: check-gemini-secret
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v2
         with:
           text-file: .github/workflows/update-github-info.lock.yml
-          keyphrase: COPILOT_GITHUB_TOKEN
+              keyphrase: GEMINI_API_KEY
 
       - name: Find generated PR that updates website content
         id: find-generated-pr
@@ -120,8 +120,8 @@ jobs:
                 passed: ${{ steps.check-notes-request.outcome == 'success' }}
               - description: "Checked for .github/workflows/update-github-info.lock.yml"
                 passed: ${{ steps.check-lock-file.outcome == 'success' }}
-              - description: "Checked that the compiled workflow references COPILOT_GITHUB_TOKEN"
-                passed: ${{ steps.check-copilot-secret.outcome == 'success' }}
+                - description: "Checked that the compiled workflow references GEMINI_API_KEY"
+                  passed: ${{ steps.check-gemini-secret.outcome == 'success' }}
               - description: "Checked that an open generated pull request updates site/content/github-info.md"
                 passed: ${{ steps.find-generated-pr.outcome == 'success' }}
               - description: "Checked that the generated pull request title mentions Mona, GitHub Info, or a website update"

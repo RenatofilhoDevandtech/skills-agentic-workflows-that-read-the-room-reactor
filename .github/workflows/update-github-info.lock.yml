@@ -23,7 +23,7 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Draft website updates for Mona's GitHub Info site from official GitHub sources. COPILOT_GITHUB_TOKEN
+# Draft website updates for Mona's GitHub Info site from official GitHub sources. GEMINI_API_KEY
 #
 # Secrets used:
 #   - GEMINI_API_KEY
@@ -1529,4 +1529,3 @@ jobs:
             /tmp/gh-aw/safe-output-items.jsonl
             /tmp/gh-aw/temporary-id-map.json
           if-no-files-found: ignore
-
