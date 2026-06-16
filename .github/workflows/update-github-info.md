@@ -26,7 +26,6 @@ network:
 # Update Mona's GitHub Info website
 
 Read `notes/mona-notes.md` before making changes.
-
 Web fetch https://awesome-copilot.github.com/workflows/
 
 Use these sources:
