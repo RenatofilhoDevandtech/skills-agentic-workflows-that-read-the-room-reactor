@@ -102,7 +102,7 @@ Let's start in the pre-configured Codespace for this exercise. The dev container
 
 - Make sure `gh aw init --create-pull-request --completions` ran from your copied exercise repository.
 - The check looks for agentic workflows setup files created by `gh aw init`, including `.github/workflows/copilot-setup-steps.yml`, `.github/agents/agentic-workflows.md`, `.github/mcp.json`, and `.gitattributes`.
-- Make sure `GEMINI_API_KEY` is a repository Actions secret, not a value committed to the repository.
+- Make sure `GEMINI_API_KEY` (or `COPILOT_GITHUB_TOKEN`) is a repository Actions secret, not a value committed to the repository.
 - Step 1 only completes after your setup pull request is merged into `main`.
 
 </details>

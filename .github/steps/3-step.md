@@ -6,7 +6,7 @@ You now have an agentic workflow definition for Mona's website. In this step, yo
 
 Agentic workflows are authored as markdown files, but GitHub Actions runs compiled `.lock.yml` workflow files. The `gh aw compile` command turns `.github/workflows/update-github-info.md` into `.github/workflows/update-github-info.lock.yml`.
 
-Because this workflow uses the Gemini engine, it needs the `GEMINI_API_KEY` Actions secret you added before the compiled workflow can run.
+Because this workflow uses an AI engine (Gemini or Copilot), it needs the `GEMINI_API_KEY` or `COPILOT_GITHUB_TOKEN` Actions secret you added before the compiled workflow can run.
 
 The workflow uses `safe-outputs: create-pull-request`, so the agent can draft website changes without writing directly to `main`. The agent prepares a patch, and a separate permission-controlled job opens a pull request for Mona to review.
 
@@ -15,9 +15,9 @@ The workflow uses `safe-outputs: create-pull-request`, so the agent can draft we
 > [!IMPORTANT]
 > Make sure you are still using branch `create-mona-updater` from Step 2. If you switched branches, return to `create-mona-updater` before continuing.
 
-1. Confirm the repository has the `GEMINI_API_KEY` Actions secret configured.
+1. Confirm the repository has the `GEMINI_API_KEY` (or `COPILOT_GITHUB_TOKEN`) Actions secret configured.
 
-   If you need to check, go to **Settings** > **Secrets and variables** > **Actions** in your copied exercise repository. You should see `GEMINI_API_KEY` listed as a repository secret.
+   If you need to check, go to **Settings** > **Secrets and variables** > **Actions** in your copied exercise repository. You should see it listed as a repository secret.
 
 2. Open the **Copilot Chat panel** using `Ctrl + Alt + I` (Windows) or `Ctrl + Cmd + I` (Mac). Select the **agentic-workflows** agent from the Copilot Chat agent selector to update Mona's updater `.github/workflows/update-github-info.md`.
 
@@ -74,7 +74,7 @@ The workflow uses `safe-outputs: create-pull-request`, so the agent can draft we
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- If the workflow fails before the agent starts, confirm `GEMINI_API_KEY` is configured as an Actions secret.
+- If the workflow fails before the agent starts, confirm `GEMINI_API_KEY` (or `COPILOT_GITHUB_TOKEN`) is configured as an Actions secret.
 - If compilation fails, make sure `.github/workflows/update-github-info.md` includes `safe-outputs`, `create-pull-request`, `workflow_dispatch`, and a `network` allowlist.
 - If no pull request appears, open the failed workflow run from the **Actions** tab and review the logs.
 - If the pull request opens as a draft, that is expected. Mona should review generated website changes before they merge.
